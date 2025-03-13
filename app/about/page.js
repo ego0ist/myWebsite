@@ -16,11 +16,11 @@ export default function AboutPage() {
         </p>
         
         <p className="text-lg mb-4">
-          Then came CSS, JavaScript, and the revelation that websites could be interactive, responsive, and beautiful. Each new technology opened doors I didn't even know existed.
+          Then came CSS, JavaScript, and the revelation that websites could be interactive, responsive, and beautiful. Each new technology opened doors I didn&apos;t even know existed.
         </p>
         
         <p className="text-lg mb-6">
-          Today, with frameworks like Next.js and tools like Tailwind CSS, what once took weeks can be built in hours. But the thrill of bringing ideas to life through code? That hasn't changed a bit.
+          Today, with frameworks like Next.js and tools like Tailwind CSS, what once took weeks can be built in hours. But the thrill of bringing ideas to life through code? That hasn&apos;t changed a bit.
         </p>
       </div>
 
