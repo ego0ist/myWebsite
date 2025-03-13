@@ -1,3 +1,5 @@
+"use client"; // Falls Events genutzt werden (Next.js)
+
 import { useState } from "react";
 // **Formular-Komponente mit State**
 export default function UserForm({ onUserAdd }) {
