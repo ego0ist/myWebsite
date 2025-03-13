@@ -1,48 +1,35 @@
-import Image from 'next/image';
-import { TeamSection } from '../component/SectionTeam';
-import { MissionSection } from '../component/SectionMission';
-import { StatsSection } from '../component/SectionStats';
- 
-// Metadata can only be exported from Server Components
-export const metadata = {
-  title: 'About Us | ShipFast',
-  description: 'Learn about our mission, team, and achievements',
-};
+"use client";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-12 space-y-24">
-      {/* Hero Section */}
-      <section className="flex flex-col items-center text-center space-y-6">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-base-content">
-          Our Story
-        </h1>
-        <div className="max-w-2xl">
-          <p className="text-lg text-base-content/80">
-            We're building the future of web development, one project at a time.
-            Our mission is to help developers ship faster without compromising on quality.
-          </p>
-        </div>
-        <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-lg overflow-hidden mt-8">
-          <Image
-            src="/images/team-photo.webp"
-            alt="Our team collaborating"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-            priority
-            className="object-cover"
-          />
-        </div>
-      </section>
+    <section className="w-full min-h-screen flex flex-col items-center justify-center p-6">
+      <h1 className="text-5xl font-bold mb-8">My Web Development Journey</h1>
+      
+      <div className="prose prose-lg max-w-3xl text-center md:text-left">
+        <p className="text-lg mb-4">
+          It all started with a single HTML file. Opening Notepad, I typed those magical words: <span className="font-mono">&lt;html&gt;</span>, not knowing how they would change my life forever.
+        </p>
+        
+        <p className="text-lg mb-4">
+          In the beginning, it was just static pages—tables for layouts, inline styles, and the occasional animated GIF. I remember the excitement of seeing my first webpage render in Internet Explorer 6, even with all its quirks and inconsistencies.
+        </p>
+        
+        <p className="text-lg mb-4">
+          Then came CSS, JavaScript, and the revelation that websites could be interactive, responsive, and beautiful. Each new technology opened doors I didn't even know existed.
+        </p>
+        
+        <p className="text-lg mb-6">
+          Today, with frameworks like Next.js and tools like Tailwind CSS, what once took weeks can be built in hours. But the thrill of bringing ideas to life through code? That hasn't changed a bit.
+        </p>
+      </div>
 
-      {/* Mission Section */}
-      <MissionSection />
-
-      {/* Stats Section */}
-      <StatsSection />
-
-      {/* Team Section */}
-      <TeamSection />
-    </div>
+      {/* Call-to-Action Button */}
+      <Link href="/home">
+        <button className="mt-8 px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg transition duration-300">
+          Back to Home
+        </button>
+      </Link>
+    </section>
   );
 }

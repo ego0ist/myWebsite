@@ -1,33 +1,27 @@
-"use client"; // Falls Events genutzt werden (Next.js)
- 
-import {Header, Footer, Card, UserForm, Sidebar, UserTable} from "../component/index.js";  
-import { useState } from "react";
+"use client";
+import { useDarkMode } from "../context/DarkModeContext";
+import Link from "next/link";
+import { DarkModeProvider } from "../context/DarkModeContext";
 
 
- 
-// **Haupt-App-Komponente**
-export default function Page() {
-  const [users, setUsers] = useState(["Max", "Lisa", "Alex"]);
-
-  function addUser(name) {
-    setUsers([...users, name]);
-  }
+export default function HomePage() {
+  const { darkMode } = useDarkMode(); // Access dark mode state
 
   return (
-    <Layout>
-      <Sidebar />
-      <section className="w-3/4">
-        <Card title="Willkommen!">
-          Dies ist eine Lernseite für React & Next.js. Hier kannst du Container, Komponenten, Props, Listen und Formulare üben.
-        </Card>
+    <DarkModeProvider>
+    <section className={`w-full min-h-screen flex flex-col items-center justify-center ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} p-6`}>
+      <h1 className="text-5xl font-bold">Welcome to 🚀 MyBrand</h1>
+      <p className="text-lg mt-4 max-w-2xl text-center">
+        Your one-stop destination for learning modern web development with **Next.js & Tailwind CSS**.
+      </p>
 
-        <UserForm onUserAdd={addUser} />
-        <UserTable users={users} />
-
-        <Card title="Bild hinzufügen">
-          <img src="https://source.unsplash.com/400x200/?nature" alt="Zufallsbild" className="rounded shadow" />
-        </Card>
-      </section>
-    </Layout>
+      {/* Call-to-Action Button */}
+      <Link href="/about">
+        <button className="mt-6 px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg transition duration-300">
+          Learn More
+        </button>
+      </Link>
+    </section>
+    </DarkModeProvider>
   );
 }
