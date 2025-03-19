@@ -20,7 +20,7 @@ export default function HomePage() {
           <h1 className="text-5xl font-bold mb-6 ">Welcome to </h1>
           <div className="relative w-36 h-36"> {/* Container for the image */}
                       <Image 
-                        src="/images/vsave.png" 
+                        src="/vsave.png" 
                         alt="Logo" 
                         fill
                         className="object-contain "

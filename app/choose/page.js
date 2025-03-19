@@ -17,7 +17,7 @@ export default function ChooseMarket() {
       {/* Horizontal flex container for buttons */}
       <div className="flex flex-row items-center justify-center gap-8">
         <AldiButton 
-          imagePath="/images/Aldi_Süd_2017_logo.svg.png"
+          imagePath="/Aldi_Süd_2017_logo.svg.png"
           alt="Aldi Store"
           href="/markets/aldi"
           width={240}
@@ -26,7 +26,7 @@ export default function ChooseMarket() {
         />
         
         <AldiButton 
-          imagePath="/images/lidl-logo.png"
+          imagePath="/lidl-logo.png"
           alt="Lidl Store"
           href="/markets/lidl"
           width={240}
