@@ -33,7 +33,7 @@ export default function HomePage() {
           {/* Call-to-Action Button */}
           <Link href="/about">
             <button className="mt-6 px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg transition duration-300">
-              let's go 
+              let&rsquo;s go 
             </button>
           </Link>
         </>
