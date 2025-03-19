@@ -14,7 +14,7 @@ export default function Footer() {
         <Link href="/home" className="flex items-center gap-3">
           <div className="relative w-12 h-12"> {/* Container for the image */}
             <Image 
-              src="/images/vsave.png" 
+              src="/images/vSave.png" 
               alt="Logo" 
               fill
               className="object-contain"
