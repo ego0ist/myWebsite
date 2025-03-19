@@ -1,8 +1,3 @@
- export default function HomeLayout({ children }) {
-  return (
-    <div className="w-full">
-      {/* Any home-specific layout elements */}
-      {children}
-    </div>
-  );
+export default function HomeLayout({ children }) {
+  return children; // Remove the extra wrapper divs completely
 }
