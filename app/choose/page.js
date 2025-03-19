@@ -1,12 +1,17 @@
 "use client";
 
 import AldiButton from '../components/AldiButton.js';
+import { DarkModeProvider, useDarkMode } from '../context/DarkModeContext.js';
 
 export default function ChooseMarket() {
+  const { darkMode } = useDarkMode();
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center ">
+    <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-800">Wähle deinen Store</h2>
+        <h2 className={`text-4xl font-bold ${darkMode ? "text-white" : "text-gray-800"}`}>
+          Wähle deinen Store
+        </h2>
       </div>
       
       {/* Horizontal flex container for buttons */}
