@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Twitter, Instagram, Github } from "lucide-react";
 import { useDarkMode } from "../context/DarkModeContext";
 
@@ -8,8 +9,19 @@ export default function Footer() {
 
   return (
     <footer className={`w-full ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} shadow-lg`}>
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center p-6">
-        <Link href="/" className="text-2xl font-bold">🚀 Maxi lernt coden</Link>
+     
+      <div className="container mx-auto flex justify-between items-center p-4">
+        <Link href="/home" className="flex items-center gap-3">
+          <div className="relative w-12 h-12"> {/* Container for the image */}
+            <Image 
+              src="/images/vsave.png" 
+              alt="Logo" 
+              fill
+              className="object-contain"
+            />
+          </div>
+          <span className="text-2xl font-bold justify-center gap-12">so einfach war sparen noch nie</span>
+        </Link>
 
         {/* Navigation */}
         <nav className="flex space-x-6 mt-4 md:mt-0">

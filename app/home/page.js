@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useDarkMode } from "../context/DarkModeContext";
 import Link from "next/link";
 import { DarkModeProvider } from "../context/DarkModeContext";
@@ -16,15 +17,23 @@ export default function HomePage() {
             <title>Meine Website - Startseite</title>
             <meta name="description" content="Das ist meine Next.js-Webseite" />
           </Head>
-          <h1 className="text-5xl font-bold">Welcome to 🚀 MyBrand</h1>
+          <h1 className="text-5xl font-bold mb-6 ">Welcome to </h1>
+          <div className="relative w-36 h-36"> {/* Container for the image */}
+                      <Image 
+                        src="/images/vsave.png" 
+                        alt="Logo" 
+                        fill
+                        className="object-contain "
+                      />
+                    </div>
           <p className="text-lg mt-4 max-w-2xl text-center">
-            Your one-stop destination for learning modern web development with **Next.js & Tailwind CSS**.
+            Keine Gedanken mehr übers Sparen machen.
           </p>
 
           {/* Call-to-Action Button */}
           <Link href="/about">
             <button className="mt-6 px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg transition duration-300">
-              Learn More
+              let's go 
             </button>
           </Link>
         </>
