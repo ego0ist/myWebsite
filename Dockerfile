@@ -36,6 +36,14 @@ COPY --from=builder /app/public ./public
 
 # Expose the port Next.js runs on
 EXPOSE 3000
+ 
 
-# Start the Next.js production server
-CMD ["npm", "run", "start"]
+# Installiere Git
+RUN apk add --no-cache git
+ 
+
+# Klone das Git-Repository (falls es noch nicht existiert)
+RUN git clone https://github.com/ego0ist/myWebsite .
+
+# Stellt sicher, dass das Repo immer aktuell ist
+CMD git pull origin main && npm start
