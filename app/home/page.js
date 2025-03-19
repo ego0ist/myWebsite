@@ -7,12 +7,10 @@ export default function HomePage() {
   const { darkMode } = useDarkMode();
 
   return (
-    <section className={`w-full flex flex-col items-center justify-center ${
+    <section className={`prose prose-lg w-full flex flex-col items-center ${
       darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-    } px-3 py-4 md:py-5`}>
-      {/* Removed min-h-screen to prevent excess vertical space */}
-      
-      {/* Removed Head component (use metadata exports instead) */}
+    } px-3 py-12 md:py-16`}>
+      {/* Added specific vertical padding instead of justify-center */}
       
       <h1 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-center">Welcome to</h1>
       
@@ -31,8 +29,8 @@ export default function HomePage() {
         Keine Gedanken mehr übers Sparen machen.
       </p>
 
-      {/* Tighter spacing on CTA button */}
-      <Link href="/choose" className="mt-4 md:mt-5 w-full max-w-xs flex justify-center">
+      {/* Added bottom margin to create space before footer */}
+      <Link href="/choose" className="mt-4 md:mt-5 mb-16 md:mb-20 w-full max-w-xs flex justify-center">
         <button className="w-full md:w-auto px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-semibold text-lg transition duration-300">
           let&rsquo;s go 
         </button>
@@ -41,4 +39,4 @@ export default function HomePage() {
   );
 }
 
- 
+
