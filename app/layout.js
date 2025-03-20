@@ -1,9 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css"; 
 import { DarkModeProvider } from "./context/DarkModeContext";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
- 
+import dynamic from "next/dynamic";
+
+// Lazy load non-critical components
+const Header = dynamic(() => import("./components/Header"), { ssr: true });
+const Footer = dynamic(() => import("./components/Footer"), { ssr: true });
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,12 +22,13 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "vSave - einfach sparen",
   description: "Created by MC",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
   themeColor: "#ffffff",
 };
 

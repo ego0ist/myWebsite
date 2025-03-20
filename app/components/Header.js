@@ -15,6 +15,7 @@ export default function Header() {
             <Image 
               src="/vSave.png" 
               alt="Logo" 
+              sizes="(max-width: 69px) 100vw, 50vw"
               fill
               className="object-contain"
             />
