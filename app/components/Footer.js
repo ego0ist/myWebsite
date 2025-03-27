@@ -2,14 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Twitter, Instagram, Github } from "lucide-react";
-import { useDarkMode } from "../context/DarkModeContext";
+
 
 export default function Footer() {
-  const { darkMode } = useDarkMode();
-
+ 
   return (
-    <footer className={`w-full ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} shadow-lg`}>
-      {/* Mobile-optimized footer content */}
+    <footer className="w-full">
       <div className="container mx-auto p-4">
         {/* Top section with logo and slogan */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
@@ -52,8 +50,8 @@ export default function Footer() {
       </div>
 
       {/* Copyright - Same on all screens */}
-      <div className={`text-center ${darkMode ? "bg-gray-800" : "bg-gray-100"} p-2`}>
-        <p>© {new Date().getFullYear()} Maxi lernt coden | All Rights Reserved</p>
+      <div className= "text-center p-2">
+        <p>© {new Date().getFullYear()} sei nicht dumm sei schlau | All Rights Reserved</p>
       </div>
     </footer>
   );

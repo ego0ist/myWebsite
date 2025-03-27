@@ -1,15 +1,11 @@
-"use client";
-import HomeBanner from "../components/HomeBanner";
-import { useDarkMode } from "../context/DarkModeContext";
-
-export default function HomeLayout({ children }) {
-  // Retrieve dark mode value for the banner
-  const { darkMode } = useDarkMode();
+import HomeBanner
+ from "../components/HomeBanner";
+export default function ChooseLayout({ children }) {
+    return (
+      <div className="w-full">
+        <HomeBanner />
+        {children}
+      </div>
+    );
+  }
   
-  return (
-    <>
-      <HomeBanner darkMode={darkMode} />
-      {children}
-    </>
-  );
-}

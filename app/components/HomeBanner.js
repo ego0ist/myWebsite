@@ -3,10 +3,7 @@ import Link from "next/link";
 
 export default function HomeBanner({ darkMode }) {
   return (
-    <section className={`prose prose-lg w-full flex flex-col items-center ${
-      darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-    } px-3 py-12 md:py-16`}>
-      {/* Added specific vertical padding instead of justify-center */}
+    <section className="prose prose-lg w-full flex flex-col items-center">
       
       <h1 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-center">Welcome to</h1>
       

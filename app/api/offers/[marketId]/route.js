@@ -38,7 +38,7 @@ async function getOffersForMarket(marketId) {
         id: '1',
         name: 'Bananen',
         category: 'fruits-vegetables',
-        imageUrl: 'https://placehold.co/300x200?text=Bananen',
+        imageUrl: '/bananas.png',
         originalPrice: 1.99,
         discountPrice: 0.99,
         quantity: '1kg',

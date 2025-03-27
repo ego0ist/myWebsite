@@ -1,15 +1,12 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Moon, Sun } from "lucide-react";
-import { useDarkMode } from "../context/DarkModeContext";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
-  const { darkMode, setDarkMode } = useDarkMode(); // Get dark mode state globally
-
+ 
   return (
-    <header className={`w-full ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} shadow-lg`}>
-      <div className="container mx-auto flex justify-between items-center p-4">
+        <header className="w-full">  
+        <div className="container mx-auto flex justify-between items-center p-2">
         <Link href="/home" className="flex items-center gap-3">
           <div className="relative w-12 h-12"> {/* Container for the image */}
             <Image 
@@ -22,10 +19,7 @@ export default function Header() {
           </div> 
         </Link>
  
-        {/* Dark Mode Toggle */}
-        <button onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
+        <ThemeToggle />
       </div>
     </header>
   );

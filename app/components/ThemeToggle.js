@@ -1,38 +1,37 @@
 "use client";
-// filepath: app/components/ThemeToggle.js
-import { useState, useEffect } from 'react';
-import { Moon, Sun, Monitor } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
-export default function ThemeToggle({ initialTheme = 'system' }) {
-  const [theme, setTheme] = useState(initialTheme);
-  const router = useRouter();
+import { useState, useEffect } from 'react';
+import { Moon, Sun } from 'lucide-react';
+
+export default function ThemeToggle() {
+  const [theme, setTheme] = useState('light');
+  const [mounted, setMounted] = useState(false);
   
+  // Only run on client side
   useEffect(() => {
-    // Apply theme class to document
-    const root = document.documentElement;
-    if (theme === 'dark' || 
-       (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    
-    // Set cookie
-    document.cookie = `theme=${theme};path=/;max-age=31536000`;
-  }, [theme]);
-  
-  function cycleTheme() {
-    const nextTheme = theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light';
-    setTheme(nextTheme);
-    router.refresh(); // Refresh server components to reflect new cookie value
-  }
+    setMounted(true);
+    const storedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(storedTheme);
+    document.documentElement.setAttribute('data-theme', storedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
+  };
+
+  // Don't render anything until client-side
+  if (!mounted) return null;
 
   return (
-    <button onClick={cycleTheme} className="p-2 rounded-md">
-      {theme === 'light' && <Sun size={20} />}
-      {theme === 'dark' && <Moon size={20} />}
-      {theme === 'system' && <Monitor size={20} />}
+    <button 
+      onClick={toggleTheme} 
+      className="btn btn-ghost btn-circle"
+      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+    >
+      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
     </button>
   );
 }

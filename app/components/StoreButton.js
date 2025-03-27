@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-export default function AldiButton({ imagePath, alt, href, width = 200, height = 80, className = "" }) {
+export default function StoreButton({ imagePath, alt, href, width = 200, height = 80, className = "" }) {
   const router = useRouter();
 
   const handleClick = () => {

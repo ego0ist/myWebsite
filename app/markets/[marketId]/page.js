@@ -5,7 +5,7 @@ export default function MarketOffersPage({ params }) {
   const { marketId } = params;
   
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="container mx-auto px-4">
       <GroceryOffersContainer marketId={marketId} />
     </main>
   );

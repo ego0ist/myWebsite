@@ -43,7 +43,7 @@ export default function OfferCard({ offer }) {
         
         {offer.validUntil && (
           <div className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-            Valid until {new Date(offer.validUntil).toLocaleDateString()}
+            gültig bis {new Date(offer.validUntil).toLocaleDateString()}
           </div>
         )}
       </div>
