@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 export default function Header() {
  
   return (
-        <header className="w-full">  
+        <header className="w-full sticky top-0 z-50">  
         <div className="container mx-auto flex justify-between items-center p-2">
         <Link href="/home" className="flex items-center gap-3">
           <div className="relative w-12 h-12"> {/* Container for the image */}

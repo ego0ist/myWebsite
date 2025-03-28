@@ -1,28 +1,41 @@
 export default function CategoryFilter({ categories, activeCategory, setActiveCategory }) {
-    return (
-      <div className="w-full md:w-auto overflow-x-auto">
-        <div className="flex gap-2 pb-2">
-          <button
-            onClick={() => setActiveCategory('all')}
-            className={`btn btn-sm ${
-              activeCategory === 'all' ? 'btn-primary' : 'btn-outline'
-            }`}
-          >
-            All
-          </button>
+  return (
+    <div className="w-full md:w-auto overflow-x-auto">
+      <div>
+        <form className="filter flex flex-wrap gap-2">
+          {/* Reset button - only show when a filter is active */}
+          {activeCategory !== 'all' && (
+            <input 
+              className="btn btn-square" 
+              type="reset" 
+              value="×"
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveCategory('all');
+              }}
+            />
+          )}
           
+
+          {/* Category options - add btn-active when selected */}
           {categories.map(category => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`btn btn-sm whitespace-nowrap ${
-                activeCategory === category.id ? 'btn-primary' : 'btn-outline'
-              }`}
+            <label 
+              key={category.id} 
+              className={`btn flex items-center gap-2 ${activeCategory === category.id ? 'btn-primary' : 'btn-outline'}`}
             >
-              {category.icon} {category.name}
-            </button>
+              <input
+                type="radio"
+                name="categories"
+                className="hidden"
+                checked={activeCategory === category.id}
+                onChange={() => setActiveCategory(category.id)}
+              />
+              {category.icon}
+              <span>{category.name}</span>
+            </label>
           ))}
-        </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
+}

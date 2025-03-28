@@ -6,14 +6,14 @@ export default function OfferCard({ offer }) {
   );
 
   return (
-    <div className="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+    <div className="card bg-base-100  shadow-md hover:shadow-lg transition-shadow">
       {/* Image container with fixed aspect ratio */}
-      <figure className="relative pt-[75%] bg-gray-100">
+      <figure className="relative pt-[100%] w-full h-full bg-gray-100">
         <Image
           src={offer.imageUrl}
           alt={offer.name}
           fill
-          className="object-contain p-4"
+          className="w-full h-full object-contain"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         

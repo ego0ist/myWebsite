@@ -56,13 +56,13 @@ export default function GroceryOffersContainer({ marketId }) {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4">
-      <h1 className="text-3xl font-bold text-center mb-8">
+    <div className="w-full max-w-7xl mx-auto py-2 relative">
+      <h1 className="text-3xl font-bold absolute top-6">
         Aktuelle Angebote
       </h1>
       
       <div className="flex flex-col gap-6">
-        <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
+        <div className="relative h-50 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
           <CategoryFilter 
             categories={groceryCategories}
             activeCategory={activeCategory}
