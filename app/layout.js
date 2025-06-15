@@ -1,22 +1,16 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css"; 
+// app/layout.js (Korrigierte Version für Geist Fonts)
+import { GeistSans } from "geist/font/sans"; // Importiere GeistSans aus dem geist-Paket
+import { GeistMono } from "geist/font/mono";   // Importiere GeistMono aus dem geist-Paket
+import "./globals.css";
 import dynamic from "next/dynamic";
+import { ShoppingListProvider } from "./hooks/useShoppingList";
+import ClientHeaderLoader from "./components/ClientHeaderLoader";
 
-
-const Header = dynamic(() => import("./components/Header"), { ssr: true });
 const Footer = dynamic(() => import("./components/Footer"), { ssr: true });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap", // Improves perceived loading performance
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+// Font Setup - Die Initialisierung bleibt gleich, nur die Imports oben ändern sich
+// const geistSans = GeistSans({ subsets: ['latin'], variable: '--font-geist-sans' }); // Diese Zeile ist bei direkter Verwendung von GeistSans/GeistMono nicht nötig
+// const geistMono = GeistMono({ subsets: ['latin'], variable: '--font-geist-mono' }); // Diese Zeile ist bei direkter Verwendung von GeistSans/GeistMono nicht nötig
 
 export const metadata = {
   title: "vSave - einfach sparen",
@@ -28,17 +22,23 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: "#ffffff",
+  themeColor: "#ffffff", // Consider adapting based on theme
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
-      <body className="flex flex-col">
-        <Header />
-        <main className="flex-grow w-full px-4 py-4 md:container md:mx-auto md:p-6"> {children} </main>
-        <Footer />
-      </body>
-    </html> 
+    // Füge die Klassen direkt zum <html> Tag hinzu, wie in der Geist-Dokumentation empfohlen
+    <html lang="de" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+       <ShoppingListProvider>
+            {/* Die body-Klasse wird oft nicht mehr benötigt, wenn die Variablen im html-Tag sind */}
+            <body className="flex flex-col min-h-screen">
+                <ClientHeaderLoader />
+                <main className="flex-grow w-full container mx-auto px-4 py-4 md:py-8">
+                    {children}
+                </main>
+                <Footer />
+            </body>
+       </ShoppingListProvider>
+    </html>
   );
 }

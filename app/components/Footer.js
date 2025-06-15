@@ -36,7 +36,7 @@ export default function Footer() {
             </a>
             <a href="https://github.com" className="hover:text-gray-600 p-2" aria-label="Github">
               <Github size={20} />
-            </a>
+            </a> 
           </div>
         </div>
         
